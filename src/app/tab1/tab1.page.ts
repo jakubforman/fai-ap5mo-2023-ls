@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {PostService} from "../services/post/post.service";
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(
+    private postService: PostService
+  ) {
+    this.postService.index$().subscribe(posts => {
+      console.log(posts);
+    })
+  }
 
 }
