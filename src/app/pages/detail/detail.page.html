@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Derail příspěvku</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding" *ngIf="post$ | async; let post">
+    <h1>{{post.title}}</h1>
+    <p>{{post.body}}</p>
+    <ul>
+      <li>ID: {{post.id}}</li>
+      <li>User ID: {{post.userId}}</li>
+    </ul>
+  </div>
+</ion-content>
