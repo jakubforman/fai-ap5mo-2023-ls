@@ -1,0 +1,7 @@
+{
+  "name": "ap5mo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
