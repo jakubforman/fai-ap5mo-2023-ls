@@ -13,6 +13,9 @@
     </ion-toolbar>
   </ion-header>
 
+  <!-- Search bar -->
+  <ion-searchbar [debounce]="300" (ionChange)="handleChange($event)"></ion-searchbar>
+
   <ion-card *ngFor="let post of posts$ | async" [routerLink]="['/detail', post.id]">
     <ion-card-header>
       <ion-card-title class="ion-text-capitalize">{{post.title}}</ion-card-title>
