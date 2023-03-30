@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PostService} from "../../services/post/post.service";
-import {Observable} from "rxjs";
+import {Observable, tap} from "rxjs";
 import {PostModel} from "../../models/post.model";
 
 @Component({
@@ -16,7 +16,20 @@ export class DetailPage implements OnInit {
     private postService: PostService
   ) {
     // TODO: id get from URL
-    this.post$ = this.postService.get$(1);
+    // Chaining JS structure
+    this.post$ = this.postService.get$(1)
+      .pipe(tap(post => {
+        this.postService.save(post);
+      }));
+
+    // One line alternative chaining
+    // this.post$ = this.postService.get$(1).pipe(tap(post => this.postService.save(post)));
+
+    /* Alternative .pipe()
+    this.post$.subscribe(post => {
+      this.postService.save(post);
+    })
+    */
   }
 
   ngOnInit() {
