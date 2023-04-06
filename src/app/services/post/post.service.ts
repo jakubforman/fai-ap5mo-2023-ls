@@ -45,18 +45,27 @@ export class PostService {
    * @param post Actual post
    */
   async save(post: PostModel) {
-    let posts: PostModel[] | null = await this.storage.get('post-viewed');
-    if (!posts) {
-      posts = [];
+    let posts: PostModel[] = await this.viewed();
+
+    console.log(posts);
+    // check if exist
+    if (posts.findIndex(p => p.id === post.id) > -1) {
+      return;
     }
 
-    // TODO: check if exist
     posts.push(post);
 
     await this.storage.save('posts-viewed', posts);
   }
 
+  /**
+   * Get all viewed from storage
+   */
   async viewed() {
-    // TODO: create viewed as observable
+    let posts: PostModel[] | null = await this.storage.get('posts-viewed');
+    if (!posts) {
+      posts = [];
+    }
+    return posts;
   }
 }

@@ -13,5 +13,14 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card *ngFor="let post of posts" [routerLink]="['/detail', post.id]">
+    <ion-card-header>
+      <ion-card-title class="ion-text-capitalize">{{post.title}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{post.body | slice: 0: 80}}
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

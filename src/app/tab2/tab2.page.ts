@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {PostService} from "../services/post/post.service";
+import {PostModel} from "../models/post.model";
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +9,14 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  posts: PostModel[] = [];
+  
+  constructor(
+    private postService: PostService
+  ) {
+    this.postService.viewed().then(posts=>{
+      this.posts = posts;
+    })
+  }
 
 }
