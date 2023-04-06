@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {PostService} from "../services/post/post.service";
 import {PostModel} from "../models/post.model";
 
@@ -10,13 +10,16 @@ import {PostModel} from "../models/post.model";
 export class Tab2Page {
 
   posts: PostModel[] = [];
-  
+
   constructor(
     private postService: PostService
   ) {
-    this.postService.viewed().then(posts=>{
+
+  }
+
+  ionViewWillEnter() {
+    this.postService.viewed().then(posts => {
       this.posts = posts;
     })
   }
-
 }
