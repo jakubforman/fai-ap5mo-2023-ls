@@ -24,4 +24,30 @@ Projekt pro výuku mobilních aplikací na Univerzitě Tomáše Bati (Fakulta ap
 1. Naklonujte si REPO (`branch` - `master` nebo tu, kterou potřebujete)
 2. Otevřte projekt ve vámi zvoleném IDE a v příkazovém rádku
 3. Nainstalujte všechny NPM knihovny - `npm install`
-6. Spusťte Ionic dev server pomocí `ionic serve`
+4. Spusťte Ionic dev server pomocí `ionic serve`
+
+## iOS
+
+1. Proveďtě kroky instalace, není třeba provádět krok 4.
+2. Vytvořte build složky **www** -  `ionic build`
+3. Vytvořte synchronizaci www a iOS projektu - `ionic cap sync ios`, pokud nefunguje tak `npx cap sync ios`.
+4. Otevřete projekt v Xcode - `ionic cap open ios`, `npx cap open ios` nebo otevřete [App.xcworkspace](ios%2FApp%2FApp.xcworkspace) jako projekt v Xcode.
+5. Vyberte simulátor a spusťte
+
+## Android
+
+1. Proveďtě kroky instalace, není třeba provádět krok 4.
+2. Vytvořte build složky **www** -  `ionic build`
+3. Vytvořte synchronizaci www a Android projektu - `ionic cap sync Android`, pokud nefunguje tak `npx cap sync Android`.
+4. Otevřete projekt v Xcode - `ionic cap open Android`, `npx cap open Android` nebo otevřete složku [android](android) jako projekt v Android studiu.
+5. Vyberte emulátor a spusťte
+
+## Oprava když něco nefunguje
+
+Pokud by nějaké kroky nefungovaly je nutné projít kroky z Capacitor nebo Ionic:
+
+Kroky Capacitor jsou ty, které jsou zapsány pomocí `npx`, ionic pomocí příkazu `ionic`.
+
+- [Všechny kroky z Capacitor](https://capacitorjs.com/docs/getting-started)
+- [Všechny kroky z Ionic iOS](https://ionicframework.com/docs/developing/ios)
+- [Všechny kroky z Ionic Android](https://ionicframework.com/docs/developing/android)
